@@ -10,7 +10,6 @@ function SearchBooks() {
     const [books, setBooks] = useState([]);
 
     function search(searchTerm, searchParam){
-
         API.searchBooks(searchTerm, searchParam)
         .then(results => {
             console.log(results);
@@ -37,7 +36,7 @@ function SearchBooks() {
             <SearchForm className="container" search={search}/>
             <ResultsContainer>
                 {console.log(books)}
-                {books.map(book => <Card key={book.id} {...book} />)}
+                {books.map(book => <Card key={book.id} {...book} btnType="save"/>)}
             </ResultsContainer>
         </div>
     )

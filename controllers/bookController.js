@@ -23,7 +23,7 @@ module.exports = {
     },
     deleteById: async (req, res) => {
         try {
-            const results = await Book.remove({_id: req.params.id});
+            const results = await Book.findByIdAndDelete(req.params.id);
             res.json(results);
         }
         catch (err) {
