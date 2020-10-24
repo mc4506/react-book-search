@@ -7,15 +7,12 @@ const styles = {
     }
 }
 
-function SearchForm(){
+function SearchForm(props){
     const [bookSearch, setBookSearch] = useState({
         searchField: "none",
         searchTerm: "",
     });
-    const [books, setBooks] = useState({
 
-    });
-    
     const [invalidSearchTerm, setInvalidSearchTerm] = useState(false);
 
     const handleInputChange = event => {
@@ -34,11 +31,7 @@ function SearchForm(){
             setInvalidSearchTerm(true);
             return;
         }
-
-        API.searchBooks(bookSearch.searchTerm)
-        .then(results => {
-            console.log(results);
-        })
+        props.search(bookSearch.searchTerm);
     }
 
     return (

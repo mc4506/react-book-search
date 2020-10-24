@@ -22,7 +22,7 @@ function Navbar() {
             <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
                 <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/search-book" className={location.pathname==="/search-book" ? "nav-link active" : "nav-link"}>
+                    <Link to="/search-books" className={location.pathname==="/search-book" ? "nav-link active" : "nav-link"}>
                         Search Google Books
                     </Link>
                 </li>
