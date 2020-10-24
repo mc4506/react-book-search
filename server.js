@@ -4,7 +4,7 @@ const routes = require('./routes/book-routes.js');
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -18,7 +18,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/booksearch', {
     useFindAndModify: false
 });
 
-app.use(routes);
+app.use('/', routes);
 
 app.listen(PORT, () => {
     console.log(`App running on port http://localhost:${PORT}`);

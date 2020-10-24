@@ -11,3 +11,5 @@ router.get("*", (req, res) => {
     res.sendFile(path.join(__dirame, "../client/build/index.html"));
 });
 
+module.exports = router;
+
