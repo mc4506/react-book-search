@@ -1,21 +1,34 @@
 import React from 'react';
+import API from '../utils/API';
 
-function ViewBtn() {
+export function ViewBtn(props) {
     return (
-        <button>
-
-        </button>
+        <a href={props.link} target="_blank">
+            <button className="btn btn-primary mx-2">
+                View
+            </button>
+        </a>
     )
 }
 
-export default ViewBtn;
+export function SaveBtn(props) {
+    
+    function handleSaveBook (event) {
+        event.preventDefault();
+        API.saveBook({
+            id: props.id,
+            title: props.title,
+            authors: props.authors,
+            description: props.description,
+            img_src: props.img_src,
+            link: props.link
+        });
+        console.log('saved');
+    }
 
-function SaveBtn() {
     return (
-        <button>
-
+        <button className="btn btn-success mx-2" onClick={handleSaveBook}>
+            Save
         </button>
     )
 }
-
-export default SaveBtn;

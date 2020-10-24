@@ -11,7 +11,7 @@ function Navbar() {
 
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-primary">
-			<Link to="/" className="navbar-brand">
+			<Link to="/search-books" className="navbar-brand">
 				Google Books App
 			</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" 

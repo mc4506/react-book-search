@@ -1,8 +1,14 @@
 import React from 'react';
+import { ViewBtn, SaveBtn } from './Buttons';
 
 function Card(props) {
+
     return (
         <div className="card mb-3">
+            <div className="card-header d-flex justify-content-end">
+                <ViewBtn link={props.link}/>
+                <SaveBtn {...props}/>
+            </div>
             <div className="row no-gutters">
                 <div className="col-md-4">
                     <img src={props.img_src} className="card-img" alt={props.title}/>

@@ -1,5 +1,4 @@
-import React, { useState , useEffect } from 'react';
-import API from '../utils/API';
+import React, { useState } from 'react';
 
 const styles = {
     span: {
@@ -9,7 +8,7 @@ const styles = {
 
 function SearchForm(props){
     const [bookSearch, setBookSearch] = useState({
-        searchField: "none",
+        searchParam: "none",
         searchTerm: "",
     });
 
@@ -31,16 +30,16 @@ function SearchForm(props){
             setInvalidSearchTerm(true);
             return;
         }
-        props.search(bookSearch.searchTerm);
+        props.search(bookSearch.searchTerm, bookSearch.searchParam);
     }
 
     return (
         <form className="container p-4 bg-light" onSubmit={handleSearch}>
             <div className="form-row">
                 <div className="form-group col-md-4">
-                    <label htmlFor="searchField">Search Parameter</label>
-                    <select className="form-control" id="searchField" 
-                        name="searchField"
+                    <label htmlFor="searchParam">Search Parameter</label>
+                    <select className="form-control" id="searchParam" 
+                        name="searchParam"
                         onChange={handleInputChange}>
                             <option value="none">None</option>
                             <option value="title">Title</option>
