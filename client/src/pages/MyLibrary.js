@@ -15,8 +15,11 @@ function MyLibrary() {
         loadBooks();
     },[]);
 
-    function loadBooks() {
-        API.getMyBooks()
+    function loadBooks(startIndex) {
+        let searchOffset = {
+            index: startIndex
+        }
+        API.getMyBooks(searchOffset)
         .then(results => {
            console.log(results);
            setBooks(results.data);

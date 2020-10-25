@@ -18,25 +18,45 @@ function Pagination(props) {
 
     function handlePageChange(event) {
         event.stopPropagation();
-        console.log(event.target.textContent);
+        // console.log(event.target.textContent);
         let index = (parseInt(event.target.textContent)-1) * 10;
-        console.log("page change");
-        console.log(index);
+        // console.log("page change");
+        // console.log(index);
         if(props.search) {
             props.search(props.term, props.param, index);
         } else if(props.loadBooks) {
-            props.loadBooks();
+            props.loadBooks(index);
+        }
+    };
+
+    function handlePreviousPageClick(event) {
+        event.stopPropagation();
+        let index = (props.currentPage-2) *10;
+        if(props.search) {
+            props.search(props.term, props.param, index);
+        } else if(props.loadBooks) {
+            props.loadBooks(index);
+        }
+    };
+
+    function handleNextPageClick(event) {
+        event.stopPropagation();
+        let index = (props.currentPage) * 10;
+        if(props.search) {
+            props.search(props.term, props.param, index);
+        } else if(props.loadBooks) {
+            props.loadBooks(index);
         }
     };
 
     return (
         <nav aria-label="Page navigation">
         <ul className="pagination justify-content-end">
-            <li className={`page-item ${props.currentPage === 1 ? "disabled" : ""}`} onClick={handlePageChange}>
+            <li className={`page-item ${props.currentPage === 1 ? "disabled" : ""}`} onClick={handlePreviousPageClick}>
             <span className="page-link">Previous</span>
             </li>
             <RenderPagination/>
-            <li className={`page-item ${(props.currentPage === props.totalPages || props.totalPages === 1) ? "disabled" : ""}`} onClick={handlePageChange}>
+            <li className={`page-item ${(props.currentPage === props.totalPages || props.totalPages === 1) ? "disabled" : ""}`} onClick={handleNextPageClick}>
             <span className="page-link">Next</span>
             </li>
         </ul>

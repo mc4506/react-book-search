@@ -12,8 +12,8 @@ export default {
     saveBook: (bookData) => {
         return axios.post('/api/books', bookData);
     },
-    getMyBooks: () => {
-        return axios.get('/api/books');
+    getMyBooks: (index) => {
+        return axios.get('/api/books', index);
     },
     deleteBook: (id) => {
         return axios.delete(`/api/books/${id}`);
