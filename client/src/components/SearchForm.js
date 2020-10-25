@@ -30,7 +30,7 @@ function SearchForm(props){
             setInvalidSearchTerm(true);
             return;
         }
-        props.search(bookSearch.searchTerm, bookSearch.searchParam);
+        props.search(bookSearch.searchTerm, bookSearch.searchParam, 0);
     }
 
     return (
