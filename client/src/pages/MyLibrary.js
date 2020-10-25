@@ -35,7 +35,7 @@ function MyLibrary() {
             <Header/>
             <ResultsContainer>
                 {/* {console.log(books)} */}
-                {(books.length !== 0) && <Pagination loadBooks={loadBooks} currentPage={index/10+1} totalPages={Math.floor(totalItems/10)+1}/>}
+                {/* {(books.length !== 0) && <Pagination loadBooks={loadBooks} currentPage={index/10+1} totalPages={Math.floor(totalItems/10)+1}/>} */}
                 {books.map(book => <Card key={book._id} {...book} btnType="delete" loadBooks={loadBooks}/>)}
             </ResultsContainer>
         </div>
