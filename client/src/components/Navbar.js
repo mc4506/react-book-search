@@ -12,7 +12,7 @@ function Navbar() {
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-primary">
 			<Link to="/" className="navbar-brand">
-				Google Books App
+				Google Books Search App
 			</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" 
                 data-target="#navbarNav" aria-controls="navbarNav" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation"
