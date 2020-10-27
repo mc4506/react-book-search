@@ -1,10 +1,26 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 
 function Pagination(props) {
-    console.log(props)
+    // console.log(props)
     function RenderPagination() {
+        const [maxPages, setMaxPages] = useState(10)
+        const [width, setWidth] = useState(window.innerWidth)
+        useEffect(() => {
+            const setMaxPageValue = () => {
+                console.log(window.innerWidth);
+                if(window.innerWidth < 576) {
+                    setMaxPages(5);
+                } else {
+                    setMaxPages(10);
+                }
+            };
+            window.addEventListener('resize', setMaxPageValue);
+            return () => window.removeEventListener("resize", setMaxPageValue);
+            
+        },[]);
+
         let pages = [];
-        let numOfPages = Math.min(props.totalPages, 10);
+        let numOfPages = Math.min(props.totalPages, maxPages);
         for(let i=0; i<numOfPages; i++) {
             pages.push(
                 <li className={`page-item ${props.currentPage === i+1 ? "active" : ""}`} aria-current="page"

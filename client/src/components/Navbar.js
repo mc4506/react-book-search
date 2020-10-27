@@ -11,7 +11,7 @@ function Navbar() {
 
 	return (
 		<nav className="navbar navbar-expand-md navbar-dark bg-primary">
-			<Link to="/search-books" className="navbar-brand">
+			<Link to="/" className="navbar-brand">
 				Google Books App
 			</Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" 
@@ -22,7 +22,7 @@ function Navbar() {
             <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
                 <ul className="navbar-nav">
                 <li className="nav-item">
-                    <Link to="/search-books" className={location.pathname==="/search-book" ? "nav-link active" : "nav-link"}>
+                    <Link to="/" className={location.pathname==="/" ? "nav-link active" : "nav-link"}>
                         Search Google Books
                     </Link>
                 </li>

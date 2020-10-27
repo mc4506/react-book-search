@@ -8,7 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function App() {
   return (
     <HashRouter>
-      <Route exact path='/search-books' component={SearchBooks} />
+      <Route exact path='/' component={SearchBooks} />
       <Route exact path='/my-library' component={MyLibrary} />
     </HashRouter>
   );

@@ -59,8 +59,8 @@ function SearchForm(props){
                     />
                 </div>
             </div>
-            <div className="col">
-                <button type="submit" className="btn btn-primary mx-4">Search</button>
+            <div>
+                <button type="submit" className="btn btn-primary">Search</button>
             </div>
         </form>
     )
