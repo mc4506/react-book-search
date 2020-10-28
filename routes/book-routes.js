@@ -4,7 +4,7 @@ const bookController = require('../controllers/bookController');
 const path = require('path');
 
 
-router.get("/api/books", bookController.findAll);
+router.get("/api/books/:index", bookController.findAll);
 router.post("/api/books", bookController.saveBook);
 router.delete("/api/books/:id", bookController.deleteById);
 

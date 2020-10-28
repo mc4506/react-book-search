@@ -15,7 +15,7 @@ function MyLibrary() {
     const [notification, setNotification] = useState({});
 
     useEffect(() => {
-        loadBooks();
+        loadBooks(index);
         //mount socket
         socket.on('render save', (bookData) => {
             setNotification({
@@ -41,10 +41,7 @@ function MyLibrary() {
 
     function loadBooks(startIndex) {
         setIndex(startIndex);
-        let searchOffset = {
-            index: startIndex
-        }
-        API.getMyBooks(searchOffset)
+        API.getMyBooks(startIndex)
         .then(results => {
            console.log(results);
            setBooks(results.data[1]);

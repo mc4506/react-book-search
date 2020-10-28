@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 
 function Pagination(props) {
-    // console.log(props)
+    console.log(props)
     function RenderPagination() {
         const [maxPages, setMaxPages] = useState(10)
         useEffect(() => {

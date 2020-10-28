@@ -3,9 +3,10 @@ const Book = require('../models/Book');
 module.exports = {
     findAll: async (req, res) => {
         try {
+            // console.log(req.params.index);
             const total = await Book.count();
             const results = await Book.find()
-                .skip(req.body.index)
+                .skip(parseInt(req.params.index))
                 .limit(10)
                 .sort({'createdAt': -1});
             res.json([total, results]);
