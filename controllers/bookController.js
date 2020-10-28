@@ -3,11 +3,11 @@ const Book = require('../models/Book');
 module.exports = {
     findAll: async (req, res) => {
         try {
-            // const total = await Book.count();
+            const total = await Book.count();
             const results = await Book.find()
                 .skip(req.body.index)
                 .limit(10);
-            res.json(results);
+            res.json([total, results]);
         }
         catch (err) {
             console.log(err);

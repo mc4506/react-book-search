@@ -17,16 +17,19 @@ export function SaveBtn(props) {
     
     function handleSaveBook (event) {
         event.preventDefault();
-        API.saveBook({
+        const bookData = {
             id: props.id,
             title: props.title,
             authors: props.authors,
             description: props.description,
             img_src: props.img_src,
             link: props.link
-        }).then( () => {
+        };
+        API.saveBook(bookData).then( () => {
             console.log('saved');
             setBtnDisabled(true);
+        }).then( () => {
+            API.emitBookNotification(bookData);
         }).catch( err => {
             console.log(err)
         });

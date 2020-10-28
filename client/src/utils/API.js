@@ -1,5 +1,7 @@
 import axios from 'axios';
+import io from 'socket.io-client';
 const queryUrl = 'https://www.googleapis.com/books/v1/volumes?q=';
+const socket = io();
 
 export default {
     searchBooks: (query, param, index) => {
@@ -17,5 +19,8 @@ export default {
     },
     deleteBook: (id) => {
         return axios.delete(`/api/books/${id}`);
+    }, 
+    emitBookNotification: (bookData) => {
+        return socket.emit('saved book', bookData);
     }
 }

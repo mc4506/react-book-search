@@ -6,7 +6,6 @@ import ResultsContainer from '../components/ResultsContainer';
 import Pagination from '../components/Pagination';
 import API from '../utils/API';
 
-
 function SearchBooks() {
     const [books, setBooks] = useState([]);
     const [index, setIndex] = useState(0);

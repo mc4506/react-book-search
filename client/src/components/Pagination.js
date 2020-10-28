@@ -4,7 +4,6 @@ function Pagination(props) {
     // console.log(props)
     function RenderPagination() {
         const [maxPages, setMaxPages] = useState(10)
-        const [width, setWidth] = useState(window.innerWidth)
         useEffect(() => {
             const setMaxPageValue = () => {
                 console.log(window.innerWidth);

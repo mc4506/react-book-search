@@ -4,6 +4,10 @@ const routes = require('./routes/book-routes.js');
 
 const app = express();
 
+// attaching socket.io to express http
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
+
 const PORT = process.env.PORT || 3001;
 
 app.use(express.urlencoded({ extended: true }));
@@ -21,7 +25,18 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/booksearch', {
     useUnifiedTopology: true
 });
 
-app.listen(PORT, () => {
+io.on('connection', (socket) => {
+    console.log('a user is connected over socket');
+    socket.on('disconnect', ()=> {
+        console.log('a user disconnected');
+    });
+    socket.on('saved book', (book) => {
+        // console.log(book);
+        io.emit('render save', book);
+    })
+});
+
+http.listen(PORT, () => {
     console.log(`App running on port http://localhost:${PORT}`);
 });
 
