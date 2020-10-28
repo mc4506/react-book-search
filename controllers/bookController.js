@@ -6,7 +6,8 @@ module.exports = {
             const total = await Book.count();
             const results = await Book.find()
                 .skip(req.body.index)
-                .limit(10);
+                .limit(10)
+                .sort({'createdAt': -1});
             res.json([total, results]);
         }
         catch (err) {

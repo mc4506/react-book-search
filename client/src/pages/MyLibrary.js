@@ -16,12 +16,15 @@ function MyLibrary() {
 
     useEffect(() => {
         loadBooks();
+        //mount socket
         socket.on('render save', (bookData) => {
             setNotification({
                 title: bookData.title,
                 authors: bookData.authors
             });
         });
+        //cleanup socket by removing event listener
+        return () => socket.off('render save');
     },[notification]);
 
     function Notification() {
@@ -37,6 +40,7 @@ function MyLibrary() {
     };
 
     function loadBooks(startIndex) {
+        setIndex(startIndex);
         let searchOffset = {
             index: startIndex
         }
