@@ -18,7 +18,8 @@ clone this Repo. Visit the deployed page link.
 
 ## Usage
 
-![Screenshot](./public/screenshot.png)
+![Screenshot](./imgs/screenshot1.png)
+![Screenshot](./imgs/screenshot2.png)
 
 ## License
 
